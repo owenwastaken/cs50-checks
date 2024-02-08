@@ -1,0 +1,9 @@
+check50:
+  files: &check50_files
+    - !exclude "*"
+    - !require "decrypt.py"
+
+  checks:
+    decrypt:
+      - run: python3 decrypt.py
+        stdout: nevergonnagiveyouup!
