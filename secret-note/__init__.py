@@ -12,6 +12,5 @@ def decrypt():
     expected = "nevergonnagiveyouup!"
     actual = check50.run("python3 decrypt.py").stdout()
     if actual != expected:
-        raise check50.Mismatch("Shhhh! This is a secret!", actual, help="Make sure your program is printing just the output")
-
+        raise check50.Failure("Did not decrypt note correctly.", help="Make sure you are only printing your decrypted note")
 
