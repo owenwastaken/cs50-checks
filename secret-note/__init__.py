@@ -4,6 +4,7 @@ import re
 @check50.check()
 def doesnt_crash():
     """decrypt.py doesn't throw an exception"""
+    check50.include("decrypt.csv")
     check50.run("python3 decrypt.py").exit(0)
 
 
