@@ -1,7 +1,6 @@
 import check50
 import re
 
-
 @check50.check()
 def decrypt():
     """Decrypts secret note"""
@@ -16,7 +15,7 @@ def decrypt():
     except check50.Failure:
         check50.log("Attempting to run the program with passing secret code as input")
         actual = check50.run("python3 decrypt.py").stdin("🔉🎁🚊🎁📂👿🚿🔉🔉👇👿💣🚊🎁🎫🚿🚆🚆🐤!").stdout()
-
+        check50.log(f'Note decrypted to "{actual}"')
 
     # Fail the check if the decrypted note is not the expected result
     if not re.match(expected_regex, actual):
