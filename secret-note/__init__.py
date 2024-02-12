@@ -17,7 +17,7 @@ def decrypt():
     check50.include("decrypt.csv")
 
     # Run program and log output so students can see what their program is doing
-    actual = check50.run("python3 decrypt.py").stdout()
+    actual = check50.run("python3 decrypt.py").stdin("🔉🎁🚊🎁📂👿🚿🔉🔉👇👿💣🚊🎁🎫🚿🚆🚆🐤!").stdout()
     check50.log(f'Note decrypted to "{actual}"')
 
     # Fail the check if the decrypted note is not the expected result
