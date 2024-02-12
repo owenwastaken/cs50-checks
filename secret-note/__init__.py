@@ -7,12 +7,16 @@ def decrypt():
     """Decrypts secret note"""
     expected_regex = r"nevergonnagiveyouup!\n?"
 
-    # Copy decrypt.csv into the program's working directory
-    check50.include("decrypt.csv")
+    check50.log(f'Attempting to run the program without passing secret code as input')
 
-    # Run program and log output so students can see what their program is doing
-    actual = check50.run("python3 decrypt.py").stdin("🔉🎁🚊🎁📂👿🚿🔉🔉👇👿💣🚊🎁🎫🚿🚆🚆🐤!").stdout()
-    check50.log(f'Note decrypted to "{actual}"')
+    try:
+        # Run program and log output so students can see what their program is doing
+        actual = check50.run("python3 decrypt.py").stdout()
+        check50.log(f'Note decrypted to "{actual}"')
+    except check50.Failure:
+        check50.log("Attempting to run the program with passing secret code as input")
+        actual = check50.run("python3 decrypt.py").stdin("🔉🎁🚊🎁📂👿🚿🔉🔉👇👿💣🚊🎁🎫🚿🚆🚆🐤!").stdout()
+
 
     # Fail the check if the decrypted note is not the expected result
     if not re.match(expected_regex, actual):
